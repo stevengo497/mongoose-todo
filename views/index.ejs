@@ -4,6 +4,12 @@
 	<title>TO DO</title>
 </head>
 <body>
-	<h1><%= todos%></h1>
+	<h1>TO DO LIST</h1>
+	<input type="text" name=""></input>
+
+		<% for (let i=0; i < todos.length; i++) { %>
+	<h2><%=todos[i].task %></h2>
+	<h3><%=todos[i].description %></h3>
+<% } %>
 </body>
 </html>

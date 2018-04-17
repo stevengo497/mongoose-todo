@@ -41,7 +41,11 @@ app.get('/api/todo', function (req, res) {
 });
 
 //new() & save()
+app.post('/api/todo', function(req, res) {
+
+
 let newTask = new db.Todo({task: 'Eat food', description: 'Eat a lot'});
 	newTask.save(function(err) {
 		if (err) return handleError(err);
 	})
+})
