@@ -3,17 +3,15 @@
 
 
 //require express in our app
-const express = require('express'),
+var express = require('express'),
   bodyParser = require('body-parser');
-const db = require('./models');
+var db = require('./models');
 // generate a new express app and call it 'app'
-const app = express();
-const toDoList = require('./seed');
-const logger = require('morgan');
-const Todo = require('./models/todo');
+var app = express();
+var logger = require('morgan');
 
 /* setting up port & listen */
-const PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3000;
 app.listen(PORT, function() {
   console.log(`listening on port ${PORT}`);
 });
@@ -31,14 +29,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //initialize variable to use for our environment port
 
 app.get('/', function (req, res) {
-  res.sendFile('/views/index.html' , { root : __dirname});
+  res.render('index.ejs' , { root : __dirname});
 });
 
-app.get('/todo', function (req, res) {
-	console.log(toDoList) // shows in terminal
-	db.Todo.find(function(err, toDoList) {
-			})
-	res.json(toDoList);
-	
-
+app.get('/api/todo', function (req, res) {
+	console.log('hello') // shows in terminal
+	db.Todo.find(function(err, todos) {
+	res.render('index', {todos:todos});
+	})
 });

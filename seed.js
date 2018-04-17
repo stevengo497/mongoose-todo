@@ -54,4 +54,21 @@ let toDoList = [
 
 ];
 
-module.exports = toDoList;
+
+//remove all records that match {} -- which means remove ALL records
+db.Todo.remove({}, function(err, list){
+  if(err) {
+    console.log('Error occurred in remove', err);
+  } else {
+    console.log('removed all lists');
+
+    // create new records based on the array toDoList above
+    db.Todo.create(toDoList, function(err, list){
+      if (err) { return console.log('err', err); }
+      console.log("created", list.length, "list");
+      process.exit();
+    });
+  }
+});
+
+// module.exports = toDoList;
