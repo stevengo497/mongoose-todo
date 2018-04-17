@@ -34,10 +34,11 @@ app.get('/', function (req, res) {
   res.sendFile('/views/index.html' , { root : __dirname});
 });
 
-app.get('/api/todo', function (req, res) {
+app.get('/todo', function (req, res) {
 	console.log(toDoList) // shows in terminal
 	db.Todo.find(function(err, toDoList) {
 			})
-		res.json(toDoList);
+	res.json(toDoList);
+	
 
 });
