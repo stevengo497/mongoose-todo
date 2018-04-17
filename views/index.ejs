@@ -2,14 +2,19 @@
 <html>
 <head>
 	<title>TO DO</title>
+	<link rel="stylesheet" type="text/css" href="/styles/main.css">
 </head>
 <body>
 	<h1>TO DO LIST</h1>
-	<input type="text" name=""></input>
+	<input type="text" id="inputTask" placeholder="Task"></input>
+	<input type="text" id="inputDescription" placeholder="Description"></input>
 
 		<% for (let i=0; i < todos.length; i++) { %>
 	<h2><%=todos[i].task %></h2>
 	<h3><%=todos[i].description %></h3>
 <% } %>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/main.js"></script>
 </body>
 </html>
