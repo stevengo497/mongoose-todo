@@ -1,4 +1,4 @@
-const db = require('/models');
+const db = require('./models');
 
 let toDoList = [
 	{
@@ -53,3 +53,5 @@ let toDoList = [
 	},
 
 ];
+
+module.exports = toDoList;
