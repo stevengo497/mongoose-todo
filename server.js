@@ -32,9 +32,16 @@ app.get('/', function (req, res) {
   res.render('index.ejs' , { root : __dirname});
 });
 
+//find()
 app.get('/api/todo', function (req, res) {
 	console.log('hello') // shows in terminal
 	db.Todo.find(function(err, todos) {
 	res.render('index', {todos:todos});
 	})
 });
+
+//new() & save()
+let newTask = new db.Todo({task: 'Eat food', description: 'Eat a lot'});
+	newTask.save(function(err) {
+		if (err) return handleError(err);
+	})
