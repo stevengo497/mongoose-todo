@@ -41,11 +41,14 @@ app.get('/api/todo', function (req, res) {
 });
 
 //new() & save()
-app.post('/api/todo', function(req, res) {
-
-
+// app.post('/api/todo', function(req, res) {
+// 	var newToDo = new Todo(req.body);
+// 	newTodo.save(function(err, savedTodo) {
+// 		res.json(savedToDo);
+// 	});
+// });
+// this changes the database
 let newTask = new db.Todo({task: 'Eat food', description: 'Eat a lot'});
 	newTask.save(function(err) {
 		if (err) return handleError(err);
 	})
-})
